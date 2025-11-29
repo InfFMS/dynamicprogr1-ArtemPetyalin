@@ -14,3 +14,21 @@
 PRICE = [0, 1, 2, 1, 3, 1, 2, 1, 3, 1, 2, 1, 3, 1, 2, 1] 
 
 # Решение будет здесь
+
+least = [0] + [100] * 15
+def solver(x):
+
+    if x <= 11 and PRICE[x + 4] + least[x] < least[x + 4]:
+        least[x + 4] = PRICE[x + 4] + least[x]
+        solver(x + 4)
+
+    if x <= 13 and PRICE[x + 2] + least[x] < least[x + 2]:
+        least[x + 2] = PRICE[x + 2] + least[x]
+        solver(x + 2)
+
+    if x<= 14 and PRICE[x + 1] + least[x] < least[x + 1]:
+        least[x + 1] = PRICE[x + 1] + least[x]
+        solver(x + 1)
+
+solver(0)
+print(least[15])

@@ -9,3 +9,19 @@
 """
 
 # Решение будет здесь
+import math
+
+m = 0
+n = 0
+k = 0
+solutions = []
+sum = 0
+
+for m in range(20):
+    for n in range(20):
+        for k in range(20):
+            if m + 2 * n + 4 * k + 20 == 30:
+                solutions.append([m, n, k])
+                sum += math.factorial(m + n + k) / (math.factorial(m) * math.factorial(n) * math.factorial(k))
+
+print(int(sum))
